@@ -1,12 +1,12 @@
-import type { Config } from "tailwindcss";
+const { fontFamily } = require("tailwindcss/defaultTheme")
 
-const config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   darkMode: ["class"],
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/**/*.{ts,tsx}",
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     container: {
@@ -17,6 +17,9 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["var(--font-dm-sans)"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -57,25 +60,7 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      animation: {
-        marquee: 'marquee var(--duration, 30s) linear infinite',
-        scroll: 'scroll var(--duration, 40s) linear infinite',
-        'scroll-reverse': 'scroll-reverse var(--duration, 40s) linear infinite',
-      },
-      keyframes: {
-        marquee: {
-          to: { transform: 'translateX(-50%)' }
-        },
-        scroll: {
-          to: { transform: 'translateY(-50%)' }
-        },
-        'scroll-reverse': {
-          to: { transform: 'translateY(50%)' }
-        }
-      }
     },
   },
   plugins: [],
-} satisfies Config;
-
-export default config;
+} 
